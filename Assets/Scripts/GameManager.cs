@@ -9,15 +9,21 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private SoundDefinition gameMusic;
     [SerializeField] private SoundDefinition levelUpSound;
 
+    private string [] weapons = {"Orbit","Melee","AutoFire"};
+
     private const string RunTimerLabelName = "run-timer-label";
     private const string RunCoinRootName = "run-coin-root";
     private const string RunCoinIconName = "run-coin-icon";
     private const string RunCoinLabelName = "run-coin-label";
     private const string LevelProgressFillName = "level-progress-fill";
     private const string LevelUpRootName = "level-up-root";
+
     private const string StrengthButtonName = "strength-button";
     private const string DexterityButtonName = "dexterity-button";
     private const string IntelligenceButtonName = "intelligence-button";
+    //change to array probably in start
+    private const string weaponButtonName = "orbit-button";
+
     private const string PauseRootName = "pause-root";
     private const string ResumeButtonName = "resume-button";
     private const string PauseOptionsButtonName = "pause-options-button";
@@ -84,6 +90,8 @@ public class GameManager : MonoBehaviour {
         var strengthButton = root.Q<Button>(StrengthButtonName);
         var dexterityButton = root.Q<Button>(DexterityButtonName);
         var intelligenceButton = root.Q<Button>(IntelligenceButtonName);
+        var weaponButton = root.Q<Button>(weaponButtonName);
+
         var resumeButton = root.Q<Button>(ResumeButtonName);
         var pauseOptionsButton = root.Q<Button>(PauseOptionsButtonName);
         var pauseQuitButton = root.Q<Button>(PauseQuitButtonName);
@@ -187,6 +195,9 @@ public class GameManager : MonoBehaviour {
         if (_levelUpRoot != null)
         {
             _levelUpRoot.style.display = DisplayStyle.Flex;
+            //display right here most likely
+            _levelUpRoot.VisualElement.Orbit.style.display = DisplayStyle.Flex;
+
         }
     }
 
